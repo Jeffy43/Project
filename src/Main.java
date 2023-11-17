@@ -17,8 +17,10 @@ public class Main{
         frame.setSize(1600, 900);
         panel.setBackground(Color.DARK_GRAY);
         title.setFont(new Font("Serif",Font.BOLD,150));
+        title.setForeground (new java.awt.Color(218,165,40));
         panel.setBorder(new LineBorder(Color.white));
         panel.setLayout(null);
+
 
         b1.setBackground(new java.awt.Color(212, 175, 55));
         b1.setBounds(frame.getWidth()/2 - 150,300,300,150);
