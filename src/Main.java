@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.event.KeyEvent;
 import java.util.Scanner;
+import java.awt.*;
+import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         //variables
@@ -23,6 +25,57 @@ public class Main {
         int box14 = 0;
         int box15 = 0;
         int box16 = 0;
+        //creates a list of boxes with val 0
+        ArrayList<Integer> boxes = new ArrayList();
+        if (box1 == 0) {
+            boxes.add(1);
+        }
+        if (box2 == 0) {
+            boxes.add(2);
+        }
+        if (box3 == 0) {
+            boxes.add(3);
+        }
+        if (box4 == 0) {
+            boxes.add(4);
+        }
+        if (box5 == 0) {
+            boxes.add(5);
+        }
+        if (box6 == 0) {
+            boxes.add(6);
+        }
+        if (box7 == 0) {
+            boxes.add(7);
+        }
+        if (box8 == 0) {
+            boxes.add(8);
+        }
+        if (box9 == 0) {
+            boxes.add(9);
+        }
+        if (box10 == 0) {
+            boxes.add(10);
+        }
+        if (box11 == 0) {
+            boxes.add(11);
+        }
+        if (box12 == 0) {
+            boxes.add(12);
+        }
+        if (box13 == 0) {
+            boxes.add(13);
+        }
+        if (box14 == 0) {
+            boxes.add(14);
+        }
+        if (box15 == 0) {
+            boxes.add(15);
+        }
+        if (box16 == 0) {
+            boxes.add(16);
+        }
+        int rand = (int) Math.random() * boxes.size();
         //logic
         Scanner s = new Scanner(System.in);
         System.out.println(box1 + " " + box2 + " " + box3 + " " + box4);
@@ -43,26 +96,62 @@ public class Main {
                 } else if (box3 == 0 && box4 != 0) {
                     box3 = box2;
                     box2 = 0;
+                    if (box4 == 0) {
+                        box4 = box3;
+                    } else if (box4 == box3) {
+                        box4 += box3;
+                        box3 = 0;
+                    }
+                } else {
+                    if (box3 == box2) {
+                        box3 += box2;
+                        box2 = 0;
+                    }
+                }
+                if (box1 != 0) {
+                    System.out.println(1);
+                    if (box2 == 0) {
+                        if (box3 == 0 && box4 == 0) {
+                            box4 = box1;
+                            box1 = 0;
+                        } else if (box3 == 0 && box4 != 0) {
+                            box3 = box1;
+                            box1 = 0;
+                            if (box4 == box3) {
+                                box4 += box3;
+                                box3 = 0;
+                            }
+                        } else if (box3 != 0 && box4 != 0) {
+                            box2 = box1;
+                            box1 = 0;
+                            if (box3 == box2) {
+                                box3 += box2;
+                                box2 = 0;
+                            }
+                        }
+                    } else {
+                        if (box1 == box2) {
+                            box2 += box1;
+                            box1 = 0;
+                        }
+                    }
                 }
             }
-            if (box1 != 0) {
-                if (box2 == 0 && box3 == 0 && box4 == 0) {
-                    box4 = box1;
-                    box1 = 0;
-                } else if (box2 == 0 && box3 == 0 && box4 != 0) {
-                    box3 = box1;
-                    box3 = 0;
-                } else if (box2 == 0 && box3 != 0 && box4 != 0) {
-                    box2 = box1;
-                    box1 = 0;
-                }
-            }
+            System.out.println(box1 + " " + box2 + " " + box3 + " " + box4);
+            System.out.println(box5 + " " + box6 + " " + box7 + " " + box8);
+            System.out.println(box9 + " " + box10 + " " + box11 + " " + box12);
+            System.out.println(box13 + " " + box14 + " " + box15 + " " + box16);
         }
-        System.out.println(box1 + " " + box2 + " " + box3 + " " + box4);
-        System.out.println(box5 + " " + box6 + " " + box7 + " " + box8);
-        System.out.println(box9 + " " + box10 + " " + box11 + " " + box12);
-        System.out.println(box13 + " " + box14 + " " + box15 + " " + box16);
+    }
+}
 
+
+
+
+
+
+
+/*
         //creating background and buttons
         JPanel panel = new JPanel();
         JFrame frame = new JFrame("2048");
@@ -121,6 +210,7 @@ public class Main {
         frame.show();
         }
     }
+*/
 
 
 
