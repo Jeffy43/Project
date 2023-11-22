@@ -5,7 +5,6 @@ public class Game {
     String difficulty = "";
     int targetScore = 0;
     int currentScore = 0;
-    boolean lost = false;
     int box1 = 0;
     int box2 = 0;
     int box3 = 2;
@@ -22,7 +21,7 @@ public class Game {
     int box14 = 0;
     int box15 = 0;
     int box16 = 0;
-
+    //object constructor
     public Game(String difficulty, int targetScore){
         this.difficulty = difficulty;
         this.targetScore = targetScore;
@@ -36,18 +35,19 @@ public class Game {
             ;
         }
     }
-
+    //prints 4x4 grid
     public void print(){
         System.out.println(box1 + " " + box2 + " " + box3 + " " + box4);
         System.out.println(box5 + " " + box6 + " " + box7 + " " + box8);
         System.out.println(box9 + " " + box10 + " " + box11 + " " + box12);
         System.out.println(box13 + " " + box14 + " " + box15 + " " + box16);
     }
-
+    //dw abt it
     public void clear(){
         boxesWithout.clear();
     }
 
+    //replaces a empty box with 2
     ArrayList<Integer> boxesWithout = new ArrayList();
     public void newTwo() {
         if (box1 == 0) {boxesWithout.add(1);}
@@ -89,7 +89,7 @@ public class Game {
     }
 
 
-
+    //checks if you've won
     public boolean won(){
         int current = 0;
         int highest = 0;
@@ -127,7 +127,7 @@ public class Game {
         return won;
     }
 
-
+    //shift grids
     public void move(){
         Scanner s = new Scanner(System.in);
         if (s.nextLine().equals("d")) {
@@ -135,56 +135,71 @@ public class Game {
                 if (box4 == 0) {
                     box4 = box3;
                     box3 = 0;
-                }else{
-                    if(box4 != 0 && box4 == box3){
+                } else {
+                    if (box4 != 0 && box4 == box3) {
                         box4 += box3;
                         box3 = 0;
+                    } else {
+                        if (box3 != 0 && box1 != 0 && box1 == box3 && box2 == 0) {
+                            box3 += box1;
+                            box1 = 0;
+                        }
                     }
                 }
             }
+
             if (box2 != 0) {
                 if (box3 == 0 && box4 == 0) {
                     box4 = box2;
-                } else if (box3 == 0 && box4 != 0) {
-                    box3 = box2;
-                    box2 = 0;
-                    if (box4 == 0) {
-                        box4 = box3;
-                    } else if (box4 == box3) {
-                        box4 += box3;
-                        box3 = 0;
-                    }
                 } else {
-                    if (box3 == box2) {
-                        box3 += box2;
+                    if (box3 == 0 && box4 != 0) {
+                        box3 = box2;
                         box2 = 0;
+                        if (box4 == 0) {
+                            box4 = box3;
+                        } else {
+                            if (box4 == box3) {
+                                box4 += box3;
+                                box3 = 0;
+                            }
+                        }
+                    } else {
+                        if (box3 == box2) {
+                            box3 += box2;
+                            box2 = 0;
+                        }
                     }
                 }
-                if (box1 != 0) {
-                    if (box2 == 0) {
-                        if (box3 == 0 && box4 == 0) {
-                            box4 = box1;
-                            box1 = 0;
-                        } else if (box3 == 0 && box4 != 0) {
+            }
+
+            if (box1 != 0) {
+                if (box2 == 0) {
+                    if (box3 == 0 && box4 == 0) {
+                        box4 = box1;
+                        box1 = 0;
+                    } else {
+                        if (box3 == 0 && box4 != 0) {
                             box3 = box1;
                             box1 = 0;
                             if (box4 == box3) {
                                 box4 += box3;
                                 box3 = 0;
                             }
-                        } else if (box3 != 0 && box4 != 0) {
-                            box2 = box1;
-                            box1 = 0;
-                            if (box3 == box2) {
-                                box3 += box2;
-                                box2 = 0;
+                        } else {
+                            if (box3 != 0 && box4 != 0) {
+                                box2 = box1;
+                                box1 = 0;
+                                if (box3 == box2) {
+                                    box3 += box2;
+                                    box2 = 0;
+                                }
                             }
                         }
-                    } else {
-                        if (box1 == box2) {
-                            box2 += box1;
-                            box1 = 0;
-                        }
+                    }
+                } else {
+                    if (box1 == box2) {
+                        box2 += box1;
+                        box1 = 0;
                     }
                 }
             }
