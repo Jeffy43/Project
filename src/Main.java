@@ -8,13 +8,17 @@ import java.awt.*;
 import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
-        Game game = new Game("medium", 2048);
-        //logic
-        game.print();
-        while(!game.won()){
-            game.move();
-            game.newTwo();
+        try {
+            Game game = new Game("medium", 2048);
+            //logic
             game.print();
+            while (!game.won()) {
+                game.move();
+                game.newTwo();
+                game.print();
+            }
+        } catch (Exception e) {
+            System.out.println("You lost!");
         }
     }
 }

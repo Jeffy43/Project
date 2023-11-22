@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.*;
 
 public class Game {
     String difficulty = "";
@@ -42,12 +43,14 @@ public class Game {
         System.out.println(box9 + " " + box10 + " " + box11 + " " + box12);
         System.out.println(box13 + " " + box14 + " " + box15 + " " + box16);
     }
+
+
     //dw abt it
     public void clear(){
         boxesWithout.clear();
     }
 
-    //replaces a empty box with 2
+    //replaces an empty box with 2
     ArrayList<Integer> boxesWithout = new ArrayList();
     public void newTwo() {
         if (box1 == 0) {boxesWithout.add(1);}
@@ -68,6 +71,7 @@ public class Game {
         if (box16 == 0) {boxesWithout.add(16);}
         System.out.println(boxesWithout);
         int rand = (int) (Math.random() * boxesWithout.size());
+
         int placement = boxesWithout.get(rand);
         if (placement == 1){box1 = 2;}
         if (placement == 2){box2 = 2;}
@@ -88,7 +92,9 @@ public class Game {
         clear();
     }
 
-
+    public boolean lost(){
+        return boxesWithout.isEmpty();
+    }
     //checks if you've won
     public boolean won(){
         int current = 0;
