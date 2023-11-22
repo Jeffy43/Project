@@ -136,7 +136,9 @@ public class Game {
     //shift grids
     public void move(){
         Scanner s = new Scanner(System.in);
-        if (s.nextLine().equals("d")) {
+        String answer = s.nextLine();
+        if (answer.equals("d")) {
+            //row1
             if (box3 != 0) {
                 if (box4 == 0) {
                     box4 = box3;
@@ -209,6 +211,303 @@ public class Game {
                     }
                 }
             }
+            //row2
+            if (box7 != 0) {
+                if (box8 == 0) {
+                    box8 = box7;
+                    box7 = 0;
+                } else {
+                    if (box8 != 0 && box8 == box7) {
+                        box8 += box7;
+                        box7 = 0;
+                    } else {
+                        if (box7 != 0 && box5 != 0 && box5 == box7 && box6 == 0) {
+                            box7 += box5;
+                            box5 = 0;
+                        }
+                    }
+                }
+            }
+
+            if (box6 != 0) {
+                if (box7 == 0 && box8 == 0) {
+                    box8 = box6;
+                } else {
+                    if (box7 == 0 && box8 != 0) {
+                        box7 = box6;
+                        box6 = 0;
+                        if (box8 == 0) {
+                            box8 = box7;
+                        } else {
+                            if (box8 == box7) {
+                                box8 += box7;
+                                box7 = 0;
+                            }
+                        }
+                    } else {
+                        if (box7 == box6) {
+                            box7 += box6;
+                            box6 = 0;
+                        }
+                    }
+                }
+            }
+
+            if (box5 != 0) {
+                if (box6 == 0) {
+                    if (box7 == 0 && box8 == 0) {
+                        box8 = box5;
+                        box5 = 0;
+                    } else {
+                        if (box7 == 0 && box8 != 0) {
+                            box7 = box5;
+                            box5 = 0;
+                            if (box8 == box7) {
+                                box8 += box7;
+                                box7 = 0;
+                            }
+                        } else {
+                            if (box7 != 0 && box8 != 0) {
+                                box6 = box5;
+                                box5 = 0;
+                                if (box7 == box6) {
+                                    box7 += box6;
+                                    box6 = 0;
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    if (box5 == box6) {
+                        box6 += box5;
+                        box5 = 0;
+                    }
+                }
+            }
+            //row3
+            if (box11 != 0) {
+                if (box12 == 0) {
+                    box12 = box11;
+                    box11 = 0;
+                } else {
+                    if (box12 != 0 && box12 == box11) {
+                        box12 += box11;
+                        box11 = 0;
+                    } else {
+                        if (box11 != 0 && box9 != 0 && box9 == box11 && box10 == 0) {
+                            box11 += box9;
+                            box9 = 0;
+                        }
+                    }
+                }
+            }
+
+            if (box10 != 0) {
+                if (box11 == 0 && box12 == 0) {
+                    box12 = box10;
+                } else {
+                    if (box11 == 0 && box12 != 0) {
+                        box11 = box10;
+                        box10 = 0;
+                        if (box12 == 0) {
+                            box12 = box11;
+                        } else {
+                            if (box12 == box11) {
+                                box12 += box11;
+                                box11 = 0;
+                            }
+                        }
+                    } else {
+                        if (box11 == box10) {
+                            box11 += box10;
+                            box10 = 0;
+                        }
+                    }
+                }
+            }
+
+            if (box9 != 0) {
+                if (box10 == 0) {
+                    if (box11 == 0 && box12 == 0) {
+                        box12 = box9;
+                        box9 = 0;
+                    } else {
+                        if (box11 == 0 && box12 != 0) {
+                            box11 = box9;
+                            box9 = 0;
+                            if (box12 == box11) {
+                                box12 += box11;
+                                box11 = 0;
+                            }
+                        } else {
+                            if (box11 != 0 && box12 != 0) {
+                                box10 = box9;
+                                box9 = 0;
+                                if (box11 == box10) {
+                                    box11 += box10;
+                                    box10 = 0;
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    if (box9 == box10) {
+                        box10 += box9;
+                        box9 = 0;
+                    }
+                }
+            }
+            //row4
+            if (box15 != 0) {
+                if (box16 == 0) {
+                    box16 = box15;
+                    box15 = 0;
+                } else {
+                    if (box16 != 0 && box16 == box15) {
+                        box16 += box15;
+                        box15 = 0;
+                    } else {
+                        if (box15 != 0 && box13 != 0 && box13 == box15 && box14 == 0) {
+                            box15 += box13;
+                            box13 = 0;
+                        }
+                    }
+                }
+            }
+
+            if (box14 != 0) {
+                if (box15 == 0 && box16 == 0) {
+                    box16 = box14;
+                } else {
+                    if (box15 == 0 && box16 != 0) {
+                        box15 = box14;
+                        box14 = 0;
+                        if (box16 == 0) {
+                            box16 = box15;
+                        } else {
+                            if (box16 == box15) {
+                                box16 += box15;
+                                box15 = 0;
+                            }
+                        }
+                    } else {
+                        if (box15 == box14) {
+                            box15 += box14;
+                            box14 = 0;
+                        }
+                    }
+                }
+            }
+
+            if (box13 != 0) {
+                if (box14 == 0) {
+                    if (box15 == 0 && box16 == 0) {
+                        box16 = box13;
+                        box13 = 0;
+                    } else {
+                        if (box15 == 0 && box16 != 0) {
+                            box15 = box13;
+                            box13 = 0;
+                            if (box16 == box15) {
+                                box16 += box15;
+                                box15 = 0;
+                            }
+                        } else {
+                            if (box15 != 0 && box16 != 0) {
+                                box14 = box13;
+                                box13 = 0;
+                                if (box15 == box14) {
+                                    box15 += box14;
+                                    box14 = 0;
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    if (box13 == box14) {
+                        box14 += box13;
+                        box13 = 0;
+                    }
+                }
+            }
+        }
+        if (answer.equals("a")){
+            //row1
+            if (box2 != 0) {
+                if (box1 == 0) {
+                    box1 = box2;
+                    box2 = 0;
+                } else {
+                    if (box1 != 0 && box1 == box2) {
+                        box1 += box2;
+                        box2 = 0;
+                    } else {
+                        if (box2 != 0 && box4 != 0 && box4 == box2 && box3 == 0) {
+                            box2 += box4;
+                            box4 = 0;
+                        }
+                    }
+                }
+            }
+
+            if (box3 != 0) {
+                if (box1 == 0 && box2 == 0) {
+                    box1 = box3;
+                    box3 = 0;
+                } else {
+                    if (box1 == 0 && box2 != 0) {
+                        box1 = box3;
+                        box3 = 0;
+                        if (box2 == 0) {
+                            box2 = box1;
+                        } else {
+                            if (box2 == box1) {
+                                box1 += box2;
+                                box2 = 0;
+                            }
+                        }
+                    } else {
+                        if (box2 == box3) {
+                            box2 += box3;
+                            box3 = 0;
+                        }
+                    }
+                }
+            }
+
+            if (box4 != 0) {
+                if (box3 == 0) {
+                    if (box1 == 0 && box2 == 0) {
+                        box2 = box4;
+                        box4 = 0;
+                    } else {
+                        if (box1 == 0 && box2 != 0) {
+                            box1 = box4;
+                            box4 = 0;
+                            if (box2 == box1) {
+                                box2 += box1;
+                                box1 = 0;
+                            }
+                        } else {
+                            if (box1 != 0 && box2 != 0) {
+                                box3 = box4;
+                                box4 = 0;
+                                if (box2 == box3) {
+                                    box2 += box3;
+                                    box3 = 0;
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    if (box4 == box3) {
+                        box3 += box4;
+                        box4 = 0;
+                    }
+                }
+            }
+            //row2
+
         }
     }
 }
