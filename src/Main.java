@@ -10,13 +10,13 @@ public class Main {
     public static void main(String[] args) {
         try {
             Game game = new Game("medium", 2048);
-            //logic
             game.print();
             while (!game.won()) {
                 game.move();
                 game.newTwo();
                 game.print();
             }
+            System.out.println("You won!");
         } catch (Exception e) {
             System.out.println("You lost!");
         }
