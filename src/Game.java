@@ -1,3 +1,10 @@
+import javax.swing.*;
+import javax.swing.border.LineBorder;
+import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
@@ -199,228 +206,228 @@ public class Game {
         Scanner s = new Scanner(System.in);
         String answer = s.nextLine();
         if (answer.equals("w")) {
-           //colum 1
-            if(box5 != 0){
-                if(box1 == 0){
+            //colum 1
+            if (box5 != 0) {
+                if (box1 == 0) {
                     box1 = box5;
                     box5 = 0;
-                }else if(box1 != 0 && box1 == box5){
+                } else if (box1 != 0 && box1 == box5) {
                     box1 += box5;
                     box5 = 0;
-                }else if(box9 != 0 && box1 != 0 && box1 == box9 && box5 == 0){
+                } else if (box9 != 0 && box1 != 0 && box1 == box9 && box5 == 0) {
                     box1 += box9;
                     box9 = 0;
                 }
             }
-            if(box9 != 0){
-                if(box5 == 0 && box1 == 0){
+            if (box9 != 0) {
+                if (box5 == 0 && box1 == 0) {
                     box1 = box9;
                     box9 = 0;
-                }else if(box5 == 0 && box1 != 0){
+                } else if (box5 == 0 && box1 != 0) {
                     box5 = box9;
                     box9 = 0;
-                    if(box1 == 0){
+                    if (box1 == 0) {
                         box1 = box5;
-                    } else if(box1 == box5){
+                    } else if (box1 == box5) {
                         box1 += box5;
                         box5 = 0;
                     }
-                }else if(box9 == box5){
+                } else if (box9 == box5) {
                     box5 += box9;
-                    box9 =0;
+                    box9 = 0;
                 }
             }
-            if(box13 != 0){
-                if(box9 ==0){
-                    if(box5 == 0 && box1 ==0){
+            if (box13 != 0) {
+                if (box9 == 0) {
+                    if (box5 == 0 && box1 == 0) {
                         box1 = box13;
                         box13 = 0;
-                    }else if(box5 == 0 && box1 != 0){
+                    } else if (box5 == 0 && box1 != 0) {
                         box5 = box13;
                         box13 = 0;
-                        if(box5 == box1){
+                        if (box5 == box1) {
                             box1 += box5;
                             box5 = 0;
                         }
-                    }else if(box5 != 0 && box1 != 0){
+                    } else if (box5 != 0 && box1 != 0) {
                         box9 = box13;
-                        box13 =0;
-                        if(box9 == box5){
+                        box13 = 0;
+                        if (box9 == box5) {
                             box5 += box9;
-                            box9 =0;
+                            box9 = 0;
                         }
                     }
-                }else if(box13 == box9){
+                } else if (box13 == box9) {
                     box9 += box13;
-                    box13 =0;
+                    box13 = 0;
                 }
             }
             //colum 2
-            if(box6 != 0){
-                if(box2 == 0){
+            if (box6 != 0) {
+                if (box2 == 0) {
                     box2 = box6;
                     box6 = 0;
-                }else if(box2 != 0 && box2 == box6){
+                } else if (box2 != 0 && box2 == box6) {
                     box2 += box6;
                     box6 = 0;
-                }else if(box10 != 0 && box2 != 0 && box2 == box10 && box6 == 0){
+                } else if (box10 != 0 && box2 != 0 && box2 == box10 && box6 == 0) {
                     box2 += box10;
                     box10 = 0;
                 }
             }
-            if(box10 != 0){
-                if(box6 == 0 && box2 == 0){
+            if (box10 != 0) {
+                if (box6 == 0 && box2 == 0) {
                     box2 = box10;
                     box10 = 0;
-                }else if(box6 == 0 && box2 != 0){
+                } else if (box6 == 0 && box2 != 0) {
                     box6 = box10;
                     box10 = 0;
-                    if(box2 == 0){
+                    if (box2 == 0) {
                         box2 = box6;
-                    } else if(box2 == box6){
+                    } else if (box2 == box6) {
                         box2 += box6;
                         box6 = 0;
                     }
-                }else if(box10 == box6){
+                } else if (box10 == box6) {
                     box6 += box10;
-                    box10 =0;
+                    box10 = 0;
                 }
             }
-            if(box14 != 0){
-                if(box10 ==0){
-                    if(box6 == 0 && box2 ==0){
+            if (box14 != 0) {
+                if (box10 == 0) {
+                    if (box6 == 0 && box2 == 0) {
                         box2 = box14;
                         box14 = 0;
-                    }else if(box6 == 0 && box2 != 0){
+                    } else if (box6 == 0 && box2 != 0) {
                         box6 = box14;
                         box14 = 0;
-                        if(box6 == box2){
+                        if (box6 == box2) {
                             box2 += box6;
                             box6 = 0;
                         }
-                    }else if(box6 != 0 && box2 != 0){
+                    } else if (box6 != 0 && box2 != 0) {
                         box10 = box14;
-                        box14 =0;
-                        if(box10 == box6){
+                        box14 = 0;
+                        if (box10 == box6) {
                             box6 += box10;
-                            box10 =0;
+                            box10 = 0;
                         }
                     }
-                }else if(box14 == box10){
+                } else if (box14 == box10) {
                     box10 += box14;
-                    box14 =0;
+                    box14 = 0;
                 }
             }
             //colum 3
-            if(box7 != 0){
-                if(box3 == 0){
+            if (box7 != 0) {
+                if (box3 == 0) {
                     box3 = box7;
                     box7 = 0;
-                }else if(box3 != 0 && box3 == box7){
+                } else if (box3 != 0 && box3 == box7) {
                     box3 += box7;
                     box7 = 0;
-                }else if(box11 != 0 && box3 != 0 && box3 == box11 && box7 == 0){
+                } else if (box11 != 0 && box3 != 0 && box3 == box11 && box7 == 0) {
                     box3 += box11;
                     box11 = 0;
                 }
             }
-            if(box11 != 0){
-                if(box7 == 0 && box3 == 0){
+            if (box11 != 0) {
+                if (box7 == 0 && box3 == 0) {
                     box3 = box11;
                     box11 = 0;
-                }else if(box7 == 0 && box3 != 0){
+                } else if (box7 == 0 && box3 != 0) {
                     box7 = box11;
                     box11 = 0;
-                    if(box3 == 0){
+                    if (box3 == 0) {
                         box3 = box7;
-                    } else if(box3 == box7){
+                    } else if (box3 == box7) {
                         box3 += box7;
                         box7 = 0;
                     }
-                }else if(box11 == box7){
+                } else if (box11 == box7) {
                     box7 += box11;
-                    box11 =0;
+                    box11 = 0;
                 }
             }
-            if(box15 != 0){
-                if(box11 ==0){
-                    if(box7 == 0 && box3 ==0){
+            if (box15 != 0) {
+                if (box11 == 0) {
+                    if (box7 == 0 && box3 == 0) {
                         box3 = box15;
                         box15 = 0;
-                    }else if(box7 == 0 && box3 != 0){
+                    } else if (box7 == 0 && box3 != 0) {
                         box7 = box15;
                         box15 = 0;
-                        if(box7 == box3){
+                        if (box7 == box3) {
                             box3 += box7;
                             box7 = 0;
                         }
-                    }else if(box7 != 0 && box3 != 0){
+                    } else if (box7 != 0 && box3 != 0) {
                         box11 = box15;
-                        box15 =0;
-                        if(box11 == box7){
+                        box15 = 0;
+                        if (box11 == box7) {
                             box7 += box11;
-                            box11 =0;
+                            box11 = 0;
                         }
                     }
-                }else if(box15 == box11){
+                } else if (box15 == box11) {
                     box11 += box15;
-                    box15 =0;
+                    box15 = 0;
                 }
             }
             //colum 4
-            if(box8 != 0){
-                if(box4 == 0){
+            if (box8 != 0) {
+                if (box4 == 0) {
                     box4 = box8;
                     box8 = 0;
-                }else if(box4 != 0 && box4 == box8){
+                } else if (box4 != 0 && box4 == box8) {
                     box4 += box8;
                     box8 = 0;
-                }else if(box12 != 0 && box4 != 0 && box4 == box12 && box8 == 0){
+                } else if (box12 != 0 && box4 != 0 && box4 == box12 && box8 == 0) {
                     box4 += box12;
                     box12 = 0;
                 }
             }
-            if(box12 != 0){
-                if(box8 == 0 && box4 == 0){
+            if (box12 != 0) {
+                if (box8 == 0 && box4 == 0) {
                     box4 = box12;
                     box12 = 0;
-                }else if(box8 == 0 && box4 != 0){
+                } else if (box8 == 0 && box4 != 0) {
                     box8 = box12;
                     box12 = 0;
-                    if(box4 == 0){
+                    if (box4 == 0) {
                         box4 = box8;
-                    } else if(box4 == box8){
+                    } else if (box4 == box8) {
                         box4 += box8;
                         box8 = 0;
                     }
-                }else if(box12 == box8){
+                } else if (box12 == box8) {
                     box8 += box12;
-                    box12 =0;
+                    box12 = 0;
                 }
             }
-            if(box16 != 0){
-                if(box12 ==0){
-                    if(box8 == 0 && box4 ==0){
+            if (box16 != 0) {
+                if (box12 == 0) {
+                    if (box8 == 0 && box4 == 0) {
                         box4 = box16;
                         box16 = 0;
-                    }else if(box8 == 0 && box4 != 0){
+                    } else if (box8 == 0 && box4 != 0) {
                         box8 = box16;
                         box16 = 0;
-                        if(box8 == box4){
+                        if (box8 == box4) {
                             box4 += box8;
                             box8 = 0;
                         }
-                    }else if(box8 != 0 && box4 != 0){
+                    } else if (box8 != 0 && box4 != 0) {
                         box12 = box16;
-                        box16 =0;
-                        if(box12 == box8){
+                        box16 = 0;
+                        if (box12 == box8) {
                             box8 += box12;
-                            box12 =0;
+                            box12 = 0;
                         }
                     }
-                }else if(box16 == box12){
+                } else if (box16 == box12) {
                     box12 += box16;
-                    box16 =0;
+                    box16 = 0;
                 }
             }
         }
@@ -1121,4 +1128,166 @@ public class Game {
             }
         }
     }
+
+
+    public void setup() {
+        JPanel panel = new JPanel();
+        JPanel panel2 = new JPanel();
+        JFrame frame = new JFrame("MergeMania");
+        JLabel title = new JLabel("MergeMania");
+        JLabel title2 = new JLabel("MergeMania");
+        JButton start = new JButton("Start");
+        frame.setSize(1200, 900);
+        title.setFont(new Font("Comic Sans MS", Font.BOLD, 75));
+        title.setForeground(new java.awt.Color(218, 165, 40));
+        title2.setFont(new Font("Comic Sans MS", Font.BOLD, 75));
+        title2.setForeground(new java.awt.Color(218, 165, 40));
+        panel.setBackground(Color.DARK_GRAY);
+        panel2.setBackground(Color.DARK_GRAY);
+        panel.setBorder(new LineBorder(Color.BLACK));
+        panel2.setBorder(new LineBorder(Color.BLACK));
+        panel.setLayout(null);
+        panel2.setLayout(null);
+        //allows panel to take in inputs
+        panel.setFocusable(true);
+        panel.requestFocus();
+        //adds a mouse listener to start button
+        start.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                frame.getContentPane().removeAll();
+                frame.add(panel2);
+                frame.revalidate();
+                panel2.setFocusable(true);
+                panel2.requestFocus();
+            }
+        });
+
+
+        //adds a key listener to overall panel
+        panel2.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                int key = e.getKeyCode();
+                if (key == KeyEvent.VK_W) {
+                    panel2.setBackground(Color.WHITE);
+                }
+                //a
+                if (key == KeyEvent.VK_A) {
+                    panel2.setBackground(Color.YELLOW);
+                }
+                //s
+                if (key == KeyEvent.VK_S) {
+                    panel2.setBackground(Color.BLACK);
+                }
+                //d
+                if (key == KeyEvent.VK_D) {
+                    panel2.setBackground(Color.GREEN);
+                }
+            }
+        });
+
+        //makes 16 boxes
+        Icon icon0val = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
+        Icon icon2val = new ImageIcon("C:/Users/Jeffy/Desktop/2.png");
+        Icon icon4val = new ImageIcon("C:/Users/Jeffy/Desktop/4.png");
+        Icon icon8val = new ImageIcon("C:/Users/Jeffy/Desktop/8.png");
+        Icon icon16val = new ImageIcon("C:/Users/Jeffy/Desktop/16.png");
+        Icon icon32val = new ImageIcon("C:/Users/Jeffy/Desktop/32.png");
+        Icon icon64val = new ImageIcon("C:/Users/Jeffy/Desktop/64.png");
+        Icon icon128val = new ImageIcon("C:/Users/Jeffy/Desktop/128.png");
+        Icon icon256val = new ImageIcon("C:/Users/Jeffy/Desktop/256.png");
+        Icon icon512val = new ImageIcon("C:/Users/Jeffy/Desktop/512.png");
+        Icon icon1024val = new ImageIcon("C:/Users/Jeffy/Desktop/1024.png");
+        Icon icon2048val = new ImageIcon("C:/Users/Jeffy/Desktop/2048.png");
+        Icon icon4096val = new ImageIcon("C:/Users/Jeffy/Desktop/4096.png");
+
+        Icon icon1 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
+        Icon icon2 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
+        Icon icon3 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
+        Icon icon4 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
+        Icon icon5 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
+        Icon icon6 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
+        Icon icon7 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
+        Icon icon8 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
+        Icon icon9 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
+        Icon icon10 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
+        Icon icon11 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
+        Icon icon12 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
+        Icon icon13 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
+        Icon icon14 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
+        Icon icon15 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
+        Icon icon16 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
+
+        JButton b1 = new JButton(icon1);
+        JButton b2 = new JButton(icon2);
+        JButton b3 = new JButton(icon3);
+        JButton b4 = new JButton(icon4);
+        JButton b5 = new JButton(icon5);
+        JButton b6 = new JButton(icon6);
+        JButton b7 = new JButton(icon7);
+        JButton b8 = new JButton(icon8);
+        JButton b9 = new JButton(icon9);
+        JButton b10 = new JButton(icon10);
+        JButton b11 = new JButton(icon11);
+        JButton b12 = new JButton(icon12);
+        JButton b13 = new JButton(icon13);
+        JButton b14 = new JButton(icon14);
+        JButton b15 = new JButton(icon15);
+        JButton b16 = new JButton(icon16);
+
+
+        start.setBackground(new java.awt.Color(212, 175, 55));
+        start.setBounds(frame.getWidth() / 2 - 150, 300, 300, 150);
+        title.setBounds(frame.getWidth() / 2 - 215, -80, 600, 300);
+        frame.setVisible(true);
+        frame.add(panel);
+        panel.add(title);
+        panel.add(start);
+        title2.setBounds(frame.getWidth() / 2 - 215, -80, 600, 300);
+        panel2.add(title2);
+        //setting buttons
+        //row1
+        b1.setBounds(400, 150, 100, 100);
+        b2.setBounds(500, 150, 100, 100);
+        b3.setBounds(600, 150, 100, 100);
+        b4.setBounds(700, 150, 100, 100);
+        //row2
+        b5.setBounds(400, 250, 100, 100);
+        b6.setBounds(500, 250, 100, 100);
+        b7.setBounds(600, 250, 100, 100);
+        b8.setBounds(700, 250, 100, 100);
+        //row3
+        b9.setBounds(400, 350, 100, 100);
+        b10.setBounds(500, 350, 100, 100);
+        b11.setBounds(600, 350, 100, 100);
+        b12.setBounds(700, 350, 100, 100);
+        //row4
+        b13.setBounds(400, 450, 100, 100);
+        b14.setBounds(500, 450, 100, 100);
+        b15.setBounds(600, 450, 100, 100);
+        b16.setBounds(700, 450, 100, 100);
+
+
+        //adding buttons
+        panel2.add(b1);
+        panel2.add(b2);
+        panel2.add(b3);
+        panel2.add(b4);
+        panel2.add(b5);
+        panel2.add(b6);
+        panel2.add(b7);
+        panel2.add(b8);
+        panel2.add(b9);
+        panel2.add(b10);
+        panel2.add(b11);
+        panel2.add(b12);
+        panel2.add(b13);
+        panel2.add(b14);
+        panel2.add(b15);
+        panel2.add(b16);
+
+
+        frame.setVisible(true);
+        frame.show();
+    }
 }
+
