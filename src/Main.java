@@ -13,8 +13,10 @@ public class Main {
             game.setup();
             game.print();
             while (!game.won()) {
+                game.refresh();
                 game.newTwo();
                 game.move();
+                game.refresh();
                 game.print();
             }
             System.out.println("You won!");

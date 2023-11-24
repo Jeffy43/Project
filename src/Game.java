@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
 
-public class Game {
+public class Game extends JFrame{
     String difficulty = "";
     int targetScore = 0;
     int currentScore = 0;
@@ -161,10 +161,6 @@ public class Game {
             box16 = 2;
         }
         clear();
-    }
-
-    public boolean lost() {
-        return boxesWithout.isEmpty();
     }
 
     //checks if you've won
@@ -1186,36 +1182,36 @@ public class Game {
         });
 
         //makes 16 boxes
-        Icon icon0val = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
-        Icon icon2val = new ImageIcon("C:/Users/Jeffy/Desktop/2.png");
-        Icon icon4val = new ImageIcon("C:/Users/Jeffy/Desktop/4.png");
-        Icon icon8val = new ImageIcon("C:/Users/Jeffy/Desktop/8.png");
-        Icon icon16val = new ImageIcon("C:/Users/Jeffy/Desktop/16.png");
-        Icon icon32val = new ImageIcon("C:/Users/Jeffy/Desktop/32.png");
-        Icon icon64val = new ImageIcon("C:/Users/Jeffy/Desktop/64.png");
-        Icon icon128val = new ImageIcon("C:/Users/Jeffy/Desktop/128.png");
-        Icon icon256val = new ImageIcon("C:/Users/Jeffy/Desktop/256.png");
-        Icon icon512val = new ImageIcon("C:/Users/Jeffy/Desktop/512.png");
-        Icon icon1024val = new ImageIcon("C:/Users/Jeffy/Desktop/1024.png");
-        Icon icon2048val = new ImageIcon("C:/Users/Jeffy/Desktop/2048.png");
-        Icon icon4096val = new ImageIcon("C:/Users/Jeffy/Desktop/4096.png");
+        Icon icon0val = new ImageIcon("res/Boxes/0.png");
+        Icon icon2val = new ImageIcon("res/Boxes/2.png");
+        Icon icon4val = new ImageIcon("res/Boxes/4.png");
+        Icon icon8val = new ImageIcon("res/Boxes/8.png");
+        Icon icon16val = new ImageIcon("res/Boxes/16.png");
+        Icon icon32val = new ImageIcon("res/Boxes/32.png");
+        Icon icon64val = new ImageIcon("res/Boxes/64.png");
+        Icon icon128val = new ImageIcon("res/Boxes/128.png");
+        Icon icon256val = new ImageIcon("res/Boxes/256.png");
+        Icon icon512val = new ImageIcon("res/Boxes/512.png");
+        Icon icon1024val = new ImageIcon("res/Boxes/1024.png");
+        Icon icon2048val = new ImageIcon("res/Boxes/2048.png");
+        Icon icon4096val = new ImageIcon("res/Boxes/4096.png");
 
-        Icon icon1 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
-        Icon icon2 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
-        Icon icon3 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
-        Icon icon4 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
-        Icon icon5 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
-        Icon icon6 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
-        Icon icon7 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
-        Icon icon8 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
-        Icon icon9 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
-        Icon icon10 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
-        Icon icon11 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
-        Icon icon12 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
-        Icon icon13 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
-        Icon icon14 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
-        Icon icon15 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
-        Icon icon16 = new ImageIcon("C:/Users/Jeffy/Desktop/0.png");
+        Icon icon1 = new ImageIcon("res/Boxes/0.png");
+        Icon icon2 = new ImageIcon("res/Boxes/0.png");
+        Icon icon3 = new ImageIcon("res/Boxes/0.png");
+        Icon icon4 = new ImageIcon("res/Boxes/0.png");
+        Icon icon5 = new ImageIcon("res/Boxes/0.png");
+        Icon icon6 = new ImageIcon("res/Boxes/0.png");
+        Icon icon7 = new ImageIcon("res/Boxes/0.png");
+        Icon icon8 = new ImageIcon("res/Boxes/0.png");
+        Icon icon9 = new ImageIcon("res/Boxes/0.png");
+        Icon icon10 = new ImageIcon("res/Boxes/0.png");
+        Icon icon11 = new ImageIcon("res/Boxes/0.png");
+        Icon icon12 = new ImageIcon("res/Boxes/0.png");
+        Icon icon13 = new ImageIcon("res/Boxes/0.png");
+        Icon icon14 = new ImageIcon("res/Boxes/0.png");
+        Icon icon15 = new ImageIcon("res/Boxes/0.png");
+        Icon icon16 = new ImageIcon("res/Boxes/0.png");
 
         JButton b1 = new JButton(icon1);
         JButton b2 = new JButton(icon2);
@@ -1284,8 +1280,6 @@ public class Game {
         panel2.add(b14);
         panel2.add(b15);
         panel2.add(b16);
-
-
         frame.setVisible(true);
         frame.show();
     }
