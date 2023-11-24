@@ -14,18 +14,15 @@ public class Main {
             game.print();
             while (!game.won()) {
                 game.refresh();
-                game.newTwo();
-                game.move();
-                game.refresh();
-                game.print();
             }
             System.out.println("You won!");
+            game.refresh();
         } catch (Exception e) {
             System.out.println("You lost!");
+
         }
     }
 }
-
 
 
 
