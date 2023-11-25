@@ -14,22 +14,22 @@ public class Game extends JFrame{
     String difficulty = "";
     int targetScore = 0;
     int currentScore = 0;
-    int box1 = 256;
-    int box2 = 256;
+    int box1 = 0;
+    int box2 = 0;
     int box3 = 0;
     int box4 = 0;
-    int box5 = 0;
-    int box6 = 0;
-    int box7 = 0;
-    int box8 = 0;
-    int box9 = 0;
-    int box10 = 0;
-    int box11 = 0;
-    int box12 = 0;
-    int box13 = 0;
-    int box14 = 0;
-    int box15 = 0;
-    int box16 = 0;
+    int box5 = 2;
+    int box6 = 2;
+    int box7 = 2;
+    int box8 = 2;
+    int box9 = 2;
+    int box10 = 2;
+    int box11 = 2;
+    int box12 = 2;
+    int box13 = 4;
+    int box14 = 4;
+    int box15 = 4;
+    int box16 = 4;
     //replaces an empty box with 2
     ArrayList<Integer> boxesWithout = new ArrayList();
 
@@ -47,44 +47,27 @@ public class Game extends JFrame{
     Icon iconv2048 = new ImageIcon("res/Boxes/2048.png");
     Icon iconv4096 = new ImageIcon("res/Boxes/4096.png");
 
-    Icon icon1 = new ImageIcon("res/Boxes/0.png");
-    Icon icon2 = new ImageIcon("res/Boxes/0.png");
-    Icon icon3 = new ImageIcon("res/Boxes/0.png");
-    Icon icon4 = new ImageIcon("res/Boxes/0.png");
-    Icon icon5 = new ImageIcon("res/Boxes/0.png");
-    Icon icon6 = new ImageIcon("res/Boxes/0.png");
-    Icon icon7 = new ImageIcon("res/Boxes/0.png");
-    Icon icon8 = new ImageIcon("res/Boxes/0.png");
-    Icon icon9 = new ImageIcon("res/Boxes/0.png");
-    Icon icon10 = new ImageIcon("res/Boxes/0.png");
-    Icon icon11 = new ImageIcon("res/Boxes/0.png");
-    Icon icon12 = new ImageIcon("res/Boxes/0.png");
-    Icon icon13 = new ImageIcon("res/Boxes/0.png");
-    Icon icon14 = new ImageIcon("res/Boxes/0.png");
-    Icon icon15 = new ImageIcon("res/Boxes/0.png");
-    Icon icon16 = new ImageIcon("res/Boxes/0.png");
-
     Icon iconStart = new ImageIcon("res/Boxes/Start.png");
-    Icon iconTryAgain = new ImageIcon("res/Boxes/Try Again.png");
 
-    JButton b1 = new JButton(icon1);
-    JButton b2 = new JButton(icon2);
-    JButton b3 = new JButton(icon3);
-    JButton b4 = new JButton(icon4);
-    JButton b5 = new JButton(icon5);
-    JButton b6 = new JButton(icon6);
-    JButton b7 = new JButton(icon7);
-    JButton b8 = new JButton(icon8);
-    JButton b9 = new JButton(icon9);
-    JButton b10 = new JButton(icon10);
-    JButton b11 = new JButton(icon11);
-    JButton b12 = new JButton(icon12);
-    JButton b13 = new JButton(icon13);
-    JButton b14 = new JButton(icon14);
-    JButton b15 = new JButton(icon15);
-    JButton b16 = new JButton(icon16);
+    JButton b1 = new JButton(iconv0);
+    JButton b2 = new JButton(iconv0);
+    JButton b3 = new JButton(iconv0);
+    JButton b4 = new JButton(iconv0);
+    JButton b5 = new JButton(iconv0);
+    JButton b6 = new JButton(iconv0);
+    JButton b7 = new JButton(iconv0);
+    JButton b8 = new JButton(iconv0);
+    JButton b9 = new JButton(iconv0);
+    JButton b10 = new JButton(iconv0);
+    JButton b11 = new JButton(iconv0);
+    JButton b12 = new JButton(iconv0);
+    JButton b13 = new JButton(iconv0);
+    JButton b14 = new JButton(iconv0);
+    JButton b15 = new JButton(iconv0);
+    JButton b16 = new JButton(iconv0);
 
     boolean lose = false;
+    boolean won = false;
     //object constructor
     public Game(String difficulty) {
         this.difficulty = difficulty;
@@ -240,7 +223,7 @@ public class Game extends JFrame{
     public boolean won() {
         int current = 0;
         int highest = 0;
-        boolean won = false;
+        boolean win = false;
         ArrayList<Integer> boxes = new ArrayList();
         boxes.add(box1);
         boxes.add(box2);
@@ -267,12 +250,16 @@ public class Game extends JFrame{
             currentScore = 0;
         }
         boxes.clear();
-        won = (highest == targetScore);
-        return won;
+         if(highest >= targetScore){
+             win = true;
+             won = true;
+         }
+        return win;
     }
 
     //shift grids
     public void move(String keypress) {
+        boolean combined = false;
         if (keypress.equals("w")) {
             //colum 1
             if (box5 != 0) {
@@ -294,6 +281,7 @@ public class Game extends JFrame{
                 } else if (box5 == 0 && box1 != 0) {
                     box5 = box9;
                     box9 = 0;
+                    combined = true;
                     if (box1 == 0) {
                         box1 = box5;
                     } else if (box1 == box5) {
@@ -313,7 +301,7 @@ public class Game extends JFrame{
                     } else if (box5 == 0 && box1 != 0) {
                         box5 = box13;
                         box13 = 0;
-                        if (box5 == box1) {
+                        if (box5 == box1 && combined == false) {
                             box1 += box5;
                             box5 = 0;
                         }
@@ -330,6 +318,7 @@ public class Game extends JFrame{
                     box13 = 0;
                 }
             }
+            combined = false;
             //colum 2
             if (box6 != 0) {
                 if (box2 == 0) {
@@ -350,6 +339,7 @@ public class Game extends JFrame{
                 } else if (box6 == 0 && box2 != 0) {
                     box6 = box10;
                     box10 = 0;
+                    combined = true;
                     if (box2 == 0) {
                         box2 = box6;
                     } else if (box2 == box6) {
@@ -369,7 +359,7 @@ public class Game extends JFrame{
                     } else if (box6 == 0 && box2 != 0) {
                         box6 = box14;
                         box14 = 0;
-                        if (box6 == box2) {
+                        if (box6 == box2 && combined == false) {
                             box2 += box6;
                             box6 = 0;
                         }
@@ -386,6 +376,7 @@ public class Game extends JFrame{
                     box14 = 0;
                 }
             }
+            combined = false;
             //colum 3
             if (box7 != 0) {
                 if (box3 == 0) {
@@ -406,6 +397,7 @@ public class Game extends JFrame{
                 } else if (box7 == 0 && box3 != 0) {
                     box7 = box11;
                     box11 = 0;
+                    combined = true;
                     if (box3 == 0) {
                         box3 = box7;
                     } else if (box3 == box7) {
@@ -425,7 +417,7 @@ public class Game extends JFrame{
                     } else if (box7 == 0 && box3 != 0) {
                         box7 = box15;
                         box15 = 0;
-                        if (box7 == box3) {
+                        if (box7 == box3 && combined == false) {
                             box3 += box7;
                             box7 = 0;
                         }
@@ -442,6 +434,7 @@ public class Game extends JFrame{
                     box15 = 0;
                 }
             }
+            combined = false;
             //colum 4
             if (box8 != 0) {
                 if (box4 == 0) {
@@ -462,6 +455,7 @@ public class Game extends JFrame{
                 } else if (box8 == 0 && box4 != 0) {
                     box8 = box12;
                     box12 = 0;
+                    combined = true;
                     if (box4 == 0) {
                         box4 = box8;
                     } else if (box4 == box8) {
@@ -481,7 +475,7 @@ public class Game extends JFrame{
                     } else if (box8 == 0 && box4 != 0) {
                         box8 = box16;
                         box16 = 0;
-                        if (box8 == box4) {
+                        if (box8 == box4 && combined == false) {
                             box4 += box8;
                             box8 = 0;
                         }
@@ -520,6 +514,7 @@ public class Game extends JFrame{
                 } else if (box2 == 0 && box1 != 0) {
                     box2 = box3;
                     box3 = 0;
+                    combined = true;
                     if (box1 == 0) {
                         box1 = box2;
                     } else if (box1 == box2) {
@@ -539,7 +534,7 @@ public class Game extends JFrame{
                     } else if (box2 == 0 && box1 != 0) {
                         box2 = box4;
                         box4 = 0;
-                        if (box1 == box2) {
+                        if (box1 == box2 && combined == false) {
                             box1 += box2;
                             box2 = 0;
                         }
@@ -556,6 +551,7 @@ public class Game extends JFrame{
                     box4 = 0;
                 }
             }
+            combined = false;
             //row2
             if (box6 != 0) {
                 if (box5 == 0) {
@@ -576,6 +572,7 @@ public class Game extends JFrame{
                 } else if (box6 == 0 && box5 != 0) {
                     box6 = box7;
                     box7 = 0;
+                    combined = true;
                     if (box5 == 0) {
                         box5 = box6;
                     } else if (box5 == box6) {
@@ -595,7 +592,7 @@ public class Game extends JFrame{
                     } else if (box6 == 0 && box5 != 0) {
                         box6 = box8;
                         box8 = 0;
-                        if (box5 == box6) {
+                        if (box5 == box6 && combined == false) {
                             box5 += box6;
                             box6 = 0;
                         }
@@ -612,6 +609,7 @@ public class Game extends JFrame{
                     box8 = 0;
                 }
             }
+            combined = false;
             //row3
             if (box10 != 0) {
                 if (box9 == 0) {
@@ -632,6 +630,7 @@ public class Game extends JFrame{
                 } else if (box10 == 0 && box9 != 0) {
                     box10 = box11;
                     box11 = 0;
+                    combined = true;
                     if (box9 == 0) {
                         box9 = box10;
                     } else if (box9 == box10) {
@@ -651,7 +650,7 @@ public class Game extends JFrame{
                     } else if (box10 == 0 && box9 != 0) {
                         box10 = box12;
                         box12 = 0;
-                        if (box9 == box10) {
+                        if (box9 == box10 && combined == false) {
                             box9 += box10;
                             box10 = 0;
                         }
@@ -668,6 +667,7 @@ public class Game extends JFrame{
                     box12 = 0;
                 }
             }
+            combined = false;
             //row4
             if (box14 != 0) {
                 if (box13 == 0) {
@@ -688,6 +688,7 @@ public class Game extends JFrame{
                 } else if (box14 == 0 && box13 != 0) {
                     box14 = box15;
                     box15 = 0;
+                    combined = true;
                     if (box13 == 0) {
                         box13 = box14;
                     } else if (box13 == box14) {
@@ -707,7 +708,7 @@ public class Game extends JFrame{
                     } else if (box14 == 0 && box13 != 0) {
                         box14 = box16;
                         box16 = 0;
-                        if (box13 == box14) {
+                        if (box13 == box14 && combined == false) {
                             box13 += box14;
                             box14 = 0;
                         }
@@ -726,19 +727,17 @@ public class Game extends JFrame{
             }
         }
         if (keypress.equals("s")) {
+            //column 1
             if (box9 != 0) {
                 if (box13 == 0) {
                     box13 = box9;
                     box9 = 0;
-                    System.out.println("1, 1");
                 } else if (box13 != 0 && box13 == box9) {
                     box13 += box9;
                     box9 = 0;
-                    System.out.println("1, 2");
                 } else if (box9 != 0 && box1 != 0 && box1 == box9 && box5 == 0) {
                     box9 += box1;
                     box1 = 0;
-                    System.out.println("1, 3");
                 }
             }
             if (box5 != 0) {
@@ -748,6 +747,7 @@ public class Game extends JFrame{
                 } else if (box9 == 0 && box13 != 0) {
                     box9 = box5;
                     box5 = 0;
+                    combined = true;
                     if (box13 == 0) {
                         box13 = box9;
                     } else if (box13 == box9) {
@@ -767,7 +767,7 @@ public class Game extends JFrame{
                     } else if (box9 == 0 && box13 != 0) {
                         box9 = box1;
                         box1 = 0;
-                        if (box13 == box9) {
+                        if (box13 == box9 && combined == false) {
                             box13 += box9;
                             box9 = 0;
                         }
@@ -782,9 +782,10 @@ public class Game extends JFrame{
                 } else if (box1 == box5) {
                     box5 += box1;
                     box1 = 0;
-                    System.out.println("3, 6");
                 }
             }
+            combined = false;
+            // column 2
             if (box10 != 0) {
                 if (box14 == 0) {
                     box14 = box10;
@@ -804,6 +805,7 @@ public class Game extends JFrame{
                 } else if (box10 == 0 && box14 != 0) {
                     box10 = box6;
                     box6 = 0;
+                    combined = true;
                     if (box14 == 0) {
                         box14 = box10;
                     } else if (box14 == box10) {
@@ -823,7 +825,7 @@ public class Game extends JFrame{
                     } else if (box10 == 0 && box14 != 0) {
                         box10 = box2;
                         box2 = 0;
-                        if (box14 == box10) {
+                        if (box14 == box10 && combined == false) {
                             box14 += box10;
                             box10 = 0;
                         }
@@ -840,9 +842,10 @@ public class Game extends JFrame{
                 } else if (box2 == box6) {
                     box6 += box2;
                     box2 = 0;
-
                 }
             }
+            combined = false;
+            // column 3
             if (box11 != 0) {
                 if (box15 == 0) {
                     box15 = box11;
@@ -862,23 +865,22 @@ public class Game extends JFrame{
                 if (box11 == 0 && box15 == 0) {
                     box15 = box7;
                     box7 = 0;
-                    System.out.println("2, 1");
+
                 } else if (box11 == 0 && box15 != 0) {
                     box11 = box7;
                     box7 = 0;
-                    System.out.println("2, 2");
+                    combined = true;
+
                     if (box15 == 0) {
                         box15 = box11;
-                        System.out.println("2, 3");
+
                     } else if (box15 == box11) {
                         box15 += box11;
                         box11 = 0;
-                        System.out.println("2, 4");
                     }
                 } else if (box11 == box7) {
                     box11 += box7;
                     box7 = 0;
-                    System.out.println("2, 5");
                 }
             }
             if (box3 != 0) {
@@ -886,22 +888,18 @@ public class Game extends JFrame{
                     if (box11 == 0 && box15 == 0) {
                         box15 = box3;
                         box3 = 0;
-                        System.out.println("3, 1");
                     } else if (box11 == 0 && box15 != 0) {
                         box11 = box3;
                         box3 = 0;
-                        System.out.println("3, 2");
-                        if (box15 == box11) {
+                        if (box15 == box11 && combined == false) {
                             box15 += box11;
                             box11 = 0;
-                            System.out.println("3, 3");
                         }
                     } else if (box11 != 0 && box15 != 0) {
-                        System.out.println("3, 4");
+
                         box7 = box3;
                         box3 = 0;
                         if (box11 == box7) {
-                            System.out.println("3, 5");
                             box11 += box7;
                             box7 = 0;
                         }
@@ -909,9 +907,10 @@ public class Game extends JFrame{
                 } else if (box3 == box7) {
                     box7 += box3;
                     box3 = 0;
-                    System.out.println("3, 6");
                 }
             }
+            combined = false;
+            // column 4
             if (box12 != 0) {
                 if (box16 == 0) {
                     box16 = box12;
@@ -931,6 +930,7 @@ public class Game extends JFrame{
                 } else if (box12 == 0 && box16 != 0) {
                     box12 = box8;
                     box8 = 0;
+                    combined = true;
                     if (box16 == 0) {
                         box16 = box12;
                     } else if (box16 == box12) {
@@ -950,7 +950,7 @@ public class Game extends JFrame{
                     } else if (box12 == 0 && box16 != 0) {
                         box12 = box4;
                         box4 = 0;
-                        if (box16 == box12) {
+                        if (box16 == box12 && combined == false) {
                             box16 += box12;
                             box12 = 0;
                         }
@@ -975,30 +975,39 @@ public class Game extends JFrame{
                 if (box4 == 0) {
                     box4 = box3;
                     box3 = 0;
+
                 } else if (box4 != 0 && box4 == box3) {
                     box4 += box3;
                     box3 = 0;
+
                 } else if (box3 != 0 && box1 != 0 && box1 == box3 && box2 == 0) {
                     box3 += box1;
                     box1 = 0;
+
                 }
             }
             if (box2 != 0) {
                 if (box3 == 0 && box4 == 0) {
                     box4 = box2;
                     box2 = 0;
+
                 } else if (box3 == 0 && box4 != 0) {
                     box3 = box2;
                     box2 = 0;
+                    combined = true;
+
                     if (box4 == 0) {
                         box4 = box3;
+
                     } else if (box4 == box3) {
                         box4 += box3;
                         box3 = 0;
+
                     }
                 } else if (box3 == box2) {
                     box3 += box2;
                     box2 = 0;
+
                 }
             }
             if (box1 != 0) {
@@ -1006,26 +1015,32 @@ public class Game extends JFrame{
                     if (box3 == 0 && box4 == 0) {
                         box4 = box1;
                         box1 = 0;
+
                     } else if (box3 == 0 && box4 != 0) {
                         box3 = box1;
                         box1 = 0;
-                        if (box4 == box3) {
+                        if (box4 == box3 && combined == false) {
                             box4 += box3;
                             box3 = 0;
+
                         }
                     } else if (box3 != 0 && box4 != 0) {
                         box2 = box1;
                         box1 = 0;
+
                         if (box3 == box2) {
                             box3 += box2;
                             box2 = 0;
+
                         }
                     }
                 } else if (box1 == box2) {
                     box2 += box1;
                     box1 = 0;
+
                 }
             }
+            combined = false;
             //row2
             if (box7 != 0) {
                 if (box8 == 0) {
@@ -1046,6 +1061,7 @@ public class Game extends JFrame{
                 } else if (box7 == 0 && box8 != 0) {
                     box7 = box6;
                     box6 = 0;
+                    combined = true;
                     if (box8 == 0) {
                         box8 = box7;
                     } else if (box8 == box7) {
@@ -1065,7 +1081,7 @@ public class Game extends JFrame{
                     } else if (box7 == 0 && box8 != 0) {
                         box7 = box5;
                         box5 = 0;
-                        if (box8 == box7) {
+                        if (box8 == box7 && combined == false) {
                             box8 += box7;
                             box7 = 0;
                         }
@@ -1082,6 +1098,7 @@ public class Game extends JFrame{
                     box5 = 0;
                 }
             }
+            combined = false;
             //row3
             if (box11 != 0) {
                 if (box12 == 0) {
@@ -1102,6 +1119,7 @@ public class Game extends JFrame{
                 } else if (box11 == 0 && box12 != 0) {
                     box11 = box10;
                     box10 = 0;
+                    combined = true;
                     if (box12 == 0) {
                         box12 = box11;
                     } else if (box12 == box11) {
@@ -1121,7 +1139,7 @@ public class Game extends JFrame{
                     } else if (box11 == 0 && box12 != 0) {
                         box11 = box9;
                         box9 = 0;
-                        if (box12 == box11) {
+                        if (box12 == box11 && combined == false) {
                             box12 += box11;
                             box11 = 0;
                         }
@@ -1138,6 +1156,7 @@ public class Game extends JFrame{
                     box9 = 0;
                 }
             }
+            combined = false;
             //row4
             if (box15 != 0) {
                 if (box16 == 0) {
@@ -1158,6 +1177,7 @@ public class Game extends JFrame{
                 } else if (box15 == 0 && box16 != 0) {
                     box15 = box14;
                     box14 = 0;
+                    combined = true;
                     if (box16 == 0) {
                         box16 = box15;
                     } else if (box16 == box15) {
@@ -1177,7 +1197,7 @@ public class Game extends JFrame{
                     } else if (box15 == 0 && box16 != 0) {
                         box15 = box13;
                         box13 = 0;
-                        if (box16 == box15) {
+                        if (box16 == box15 && combined == false) {
                             box16 += box15;
                             box15 = 0;
                         }
@@ -1207,7 +1227,12 @@ public class Game extends JFrame{
         JLabel title2 = new JLabel("MergeMania");
         JLabel title3 = new JLabel("MergeMania");
         JButton start = new JButton("Start");
-        JButton tryAgain = new JButton("Try Again");
+        JLabel youLost = new JLabel("You Lost!");
+        youLost.setFont(new Font("Comic Sans MS", Font.BOLD, 90));
+        youLost.setForeground(new java.awt.Color(255, 0, 0));
+        JLabel youWon = new JLabel("You Won!");
+        youWon.setFont(new Font("Comic Sans MS", Font.BOLD, 90));
+        youWon.setForeground(new java.awt.Color(0, 255, 0));
         title.setFont(new Font("Comic Sans MS", Font.BOLD, 75));
         title.setForeground(new java.awt.Color(218, 165, 40));
         title2.setFont(new Font("Comic Sans MS", Font.BOLD, 75));
@@ -1237,16 +1262,6 @@ public class Game extends JFrame{
             }
         });
 
-
-        tryAgain.addMouseListener(new MouseAdapter() {
-            public void mouseClicked(MouseEvent e) {
-                frame.getContentPane().removeAll();
-                frame.add(panel2);
-                reset();
-            }
-        });
-
-
         //adds a key listener to overall panel
         panel2.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
@@ -1255,9 +1270,18 @@ public class Game extends JFrame{
                     move("w");
                     newTwo();
                     lost();
+                    if(won == true){
+                        frame.getContentPane().removeAll();
+                        frame.add(panel3);
+                        youWon.setVisible(true);
+                        frame.revalidate();
+                        panel3.setFocusable(true);
+                        panel3.requestFocus();
+                    }
                     if(lose == true){
                         frame.getContentPane().removeAll();
                         frame.add(panel3);
+                        youLost.setVisible(true);
                         frame.revalidate();
                         panel3.setFocusable(true);
                         panel3.requestFocus();
@@ -1269,9 +1293,18 @@ public class Game extends JFrame{
                     move("a");
                     newTwo();
                     lost();
+                    if(won == true){
+                        frame.getContentPane().removeAll();
+                        frame.add(panel3);
+                        youWon.setVisible(true);
+                        frame.revalidate();
+                        panel3.setFocusable(true);
+                        panel3.requestFocus();
+                    }
                     if(lose == true){
                         frame.getContentPane().removeAll();
                         frame.add(panel3);
+                        youLost.setVisible(true);
                         frame.revalidate();
                         panel3.setFocusable(true);
                         panel3.requestFocus();
@@ -1283,9 +1316,18 @@ public class Game extends JFrame{
                     move("s");
                     newTwo();
                     lost();
+                    if(won == true){
+                        frame.getContentPane().removeAll();
+                        frame.add(panel3);
+                        youWon.setVisible(true);
+                        frame.revalidate();
+                        panel3.setFocusable(true);
+                        panel3.requestFocus();
+                    }
                     if(lose == true){
                         frame.getContentPane().removeAll();
                         frame.add(panel3);
+                        youLost.setVisible(true);
                         frame.revalidate();
                         panel3.setFocusable(true);
                         panel3.requestFocus();
@@ -1297,9 +1339,18 @@ public class Game extends JFrame{
                     move("d");
                     newTwo();
                     lost();
+                    if(won == true){
+                        frame.getContentPane().removeAll();
+                        frame.add(panel3);
+                        youWon.setVisible(true);
+                        frame.revalidate();
+                        panel3.setFocusable(true);
+                        panel3.requestFocus();
+                    }
                     if(lose == true){
                         frame.getContentPane().removeAll();
                         frame.add(panel3);
+                        youLost.setVisible(true);
                         frame.revalidate();
                         panel3.setFocusable(true);
                         panel3.requestFocus();
@@ -1322,6 +1373,39 @@ public class Game extends JFrame{
         title3.setBounds(frame.getWidth() / 2 - 215, -80, 600, 300);
         title3.setBounds(frame.getWidth() / 2 - 215, -80, 600, 300);
         panel3.add(title3);
+
+        b1.setBorder(new LineBorder(Color.BLACK));
+        panel2.add(b1);
+        b2.setBorder(new LineBorder(Color.BLACK));
+        panel2.add(b2);
+        b3.setBorder(new LineBorder(Color.BLACK));
+        panel2.add(b3);
+        b4.setBorder(new LineBorder(Color.BLACK));
+        panel2.add(b4);
+        b5.setBorder(new LineBorder(Color.BLACK));
+        panel2.add(b5);
+        b6.setBorder(new LineBorder(Color.BLACK));
+        panel2.add(b6);
+        b7.setBorder(new LineBorder(Color.BLACK));
+        panel2.add(b7);
+        b8.setBorder(new LineBorder(Color.BLACK));
+        panel2.add(b8);
+        b9.setBorder(new LineBorder(Color.BLACK));
+        panel2.add(b9);
+        b10.setBorder(new LineBorder(Color.BLACK));
+        panel2.add(b10);
+        b11.setBorder(new LineBorder(Color.BLACK));
+        panel2.add(b11);
+        b12.setBorder(new LineBorder(Color.BLACK));
+        panel2.add(b12);
+        b13.setBorder(new LineBorder(Color.BLACK));
+        panel2.add(b13);
+        b14.setBorder(new LineBorder(Color.BLACK));
+        panel2.add(b14);
+        b15.setBorder(new LineBorder(Color.BLACK));
+        panel2.add(b15);
+        b16.setBorder(new LineBorder(Color.BLACK));
+        panel2.add(b16);
 
         //setting buttons
         //row1
@@ -1363,12 +1447,19 @@ public class Game extends JFrame{
         panel2.add(b15);
         panel2.add(b16);
 
-        //setting start and tryagain button
         start.setBounds(470, 350, 240, 120);
         start.setBackground(Color.GREEN);
-        tryAgain.setBounds(470,350,240,120);
-        tryAgain.setBackground(Color.RED);
-        panel3.add(tryAgain);
+        panel3.add(youLost);
+
+        youLost.setBounds(frame.getWidth() / 2 - 215, 300, 600, 300);
+        youLost.setVisible(false);
+        panel3.add(youWon);
+
+        youWon.setBounds(frame.getWidth() / 2 - 215, 300, 600, 300);
+        youWon.setVisible(false);
+        frame.revalidate();
+
+
         frame.setVisible(true);
         frame.show();
     }
