@@ -11,6 +11,7 @@ import java.util.Scanner;
 import java.io.*;
 
 public class Game extends JFrame{
+    //private variables
     String difficulty = "";
     int targetScore = 0;
     int currentScore = 0;
@@ -30,9 +31,9 @@ public class Game extends JFrame{
     int box14 = 4;
     int box15 = 4;
     int box16 = 4;
-    //replaces an empty box with 2
+    //lists of boxes without a value
     ArrayList<Integer> boxesWithout = new ArrayList();
-
+    //value icons
     Icon iconv0 = new ImageIcon("res/Boxes/0.png");
     Icon iconv2 = new ImageIcon("res/Boxes/2.png");
     Icon iconv4 = new ImageIcon("res/Boxes/4.png");
@@ -46,9 +47,7 @@ public class Game extends JFrame{
     Icon iconv1024 = new ImageIcon("res/Boxes/1024.png");
     Icon iconv2048 = new ImageIcon("res/Boxes/2048.png");
     Icon iconv4096 = new ImageIcon("res/Boxes/4096.png");
-
-    Icon iconStart = new ImageIcon("res/Boxes/Start.png");
-
+    //assigns value to each box
     JButton b1 = new JButton(iconv0);
     JButton b2 = new JButton(iconv0);
     JButton b3 = new JButton(iconv0);
@@ -110,7 +109,7 @@ public class Game extends JFrame{
         System.out.println(box13 + " " + box14 + " " + box15 + " " + box16);
     }
 
-    //dw abt it
+    //clears list of empty boxes
     public void clear() {
         boxesWithout.clear();
     }
@@ -1217,6 +1216,7 @@ public class Game extends JFrame{
         }
     }
 
+    //sets up jlabels and jframes
     public void setup() {
         JPanel panel = new JPanel();
         JPanel panel2 = new JPanel();
@@ -1464,6 +1464,7 @@ public class Game extends JFrame{
         frame.show();
     }
 
+    //checks if you've lost
     public void lost(){
         boolean first = true;
         boolean second = true;
@@ -1518,7 +1519,7 @@ public class Game extends JFrame{
         }
     }
 
-
+    //refreshes each boxes icon after movement
     public void refresh(){
         if (box1 == 0){
             b1.setIcon(iconv0);
