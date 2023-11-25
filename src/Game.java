@@ -5,6 +5,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.chrono.MinguoEra;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
@@ -13,8 +14,8 @@ public class Game extends JFrame{
     String difficulty = "";
     int targetScore = 0;
     int currentScore = 0;
-    int box1 = 2;
-    int box2 = 2;
+    int box1 = 256;
+    int box2 = 256;
     int box3 = 0;
     int box4 = 0;
     int box5 = 0;
@@ -63,6 +64,9 @@ public class Game extends JFrame{
     Icon icon15 = new ImageIcon("res/Boxes/0.png");
     Icon icon16 = new ImageIcon("res/Boxes/0.png");
 
+    Icon iconStart = new ImageIcon("res/Boxes/Start.png");
+    Icon iconTryAgain = new ImageIcon("res/Boxes/Try Again.png");
+
     JButton b1 = new JButton(icon1);
     JButton b2 = new JButton(icon2);
     JButton b3 = new JButton(icon3);
@@ -80,10 +84,10 @@ public class Game extends JFrame{
     JButton b15 = new JButton(icon15);
     JButton b16 = new JButton(icon16);
 
+    boolean lose = false;
     //object constructor
-    public Game(String difficulty, int targetScore) {
+    public Game(String difficulty) {
         this.difficulty = difficulty;
-        this.targetScore = targetScore;
         if (difficulty.equals("Easy") || difficulty.equals("easy")) {
             this.targetScore = 1024;
         } else if (difficulty.equals("medium") || difficulty.equals("Medium")) {
@@ -92,6 +96,27 @@ public class Game extends JFrame{
             this.targetScore = 4096;
         } else {
         }
+    }
+
+    //resets game
+    public void reset(){
+        box1 = 0;
+        box2 = 0;
+        box3 = 0;
+        box4 = 0;
+        box5 = 0;
+        box6 = 0;
+        box7 = 0;
+        box8 = 0;
+        box9 = 0;
+        box10 = 0;
+        box11 = 0;
+        box12 = 0;
+        box13 = 0;
+        box14 = 0;
+        box15 = 0;
+        box16 = 0;
+        currentScore = 0;
     }
 
     //prints 4x4 grid
@@ -241,7 +266,8 @@ public class Game extends JFrame{
             }
             currentScore = 0;
         }
-        won = highest == targetScore;
+        boxes.clear();
+        won = (highest == targetScore);
         return won;
     }
 
@@ -1174,21 +1200,29 @@ public class Game extends JFrame{
     public void setup() {
         JPanel panel = new JPanel();
         JPanel panel2 = new JPanel();
+        JPanel panel3 = new JPanel();
         JFrame frame = new JFrame("MergeMania");
+        frame.setSize(1200, 900);
         JLabel title = new JLabel("MergeMania");
         JLabel title2 = new JLabel("MergeMania");
+        JLabel title3 = new JLabel("MergeMania");
         JButton start = new JButton("Start");
-        frame.setSize(1200, 900);
+        JButton tryAgain = new JButton("Try Again");
         title.setFont(new Font("Comic Sans MS", Font.BOLD, 75));
         title.setForeground(new java.awt.Color(218, 165, 40));
         title2.setFont(new Font("Comic Sans MS", Font.BOLD, 75));
         title2.setForeground(new java.awt.Color(218, 165, 40));
+        title3.setFont(new Font("Comic Sans MS", Font.BOLD, 75));
+        title3.setForeground(new java.awt.Color(218, 165, 40));
         panel.setBackground(Color.DARK_GRAY);
         panel2.setBackground(Color.DARK_GRAY);
+        panel3.setBackground(Color.DARK_GRAY);
         panel.setBorder(new LineBorder(Color.BLACK));
         panel2.setBorder(new LineBorder(Color.BLACK));
+        panel3.setBorder(new LineBorder(Color.BLACK));
         panel.setLayout(null);
         panel2.setLayout(null);
+        panel3.setLayout(null);
         //allows panel to take in inputs
         panel.setFocusable(true);
         panel.requestFocus();
@@ -1204,6 +1238,15 @@ public class Game extends JFrame{
         });
 
 
+        tryAgain.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                frame.getContentPane().removeAll();
+                frame.add(panel2);
+                reset();
+            }
+        });
+
+
         //adds a key listener to overall panel
         panel2.addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
@@ -1211,24 +1254,56 @@ public class Game extends JFrame{
                 if (key == KeyEvent.VK_W) {
                     move("w");
                     newTwo();
+                    lost();
+                    if(lose == true){
+                        frame.getContentPane().removeAll();
+                        frame.add(panel3);
+                        frame.revalidate();
+                        panel3.setFocusable(true);
+                        panel3.requestFocus();
+                    }
                     print();
                 }
                 //a
                 if (key == KeyEvent.VK_A) {
                     move("a");
                     newTwo();
+                    lost();
+                    if(lose == true){
+                        frame.getContentPane().removeAll();
+                        frame.add(panel3);
+                        frame.revalidate();
+                        panel3.setFocusable(true);
+                        panel3.requestFocus();
+                    }
                     print();
                 }
                 //s
                 if (key == KeyEvent.VK_S) {
                     move("s");
                     newTwo();
+                    lost();
+                    if(lose == true){
+                        frame.getContentPane().removeAll();
+                        frame.add(panel3);
+                        frame.revalidate();
+                        panel3.setFocusable(true);
+                        panel3.requestFocus();
+                    }
                     print();
                 }
                 //d
                 if (key == KeyEvent.VK_D) {
                     move("d");
                     newTwo();
+                    lost();
+                    if(lose == true){
+                        frame.getContentPane().removeAll();
+                        frame.add(panel3);
+                        frame.revalidate();
+                        panel3.setFocusable(true);
+                        panel3.requestFocus();
+                    }
                     print();
                 }
             }
@@ -1236,7 +1311,7 @@ public class Game extends JFrame{
 
         //makes 16 boxes
         start.setBackground(new java.awt.Color(212, 175, 55));
-        start.setBounds(frame.getWidth() / 2 - 150, 300, 300, 150);
+        start.setBounds(frame.getWidth() / 2 - 150, 300, 240, 150);
         title.setBounds(frame.getWidth() / 2 - 215, -80, 600, 300);
         frame.setVisible(true);
         frame.add(panel);
@@ -1244,6 +1319,10 @@ public class Game extends JFrame{
         panel.add(start);
         title2.setBounds(frame.getWidth() / 2 - 215, -80, 600, 300);
         panel2.add(title2);
+        title3.setBounds(frame.getWidth() / 2 - 215, -80, 600, 300);
+        title3.setBounds(frame.getWidth() / 2 - 215, -80, 600, 300);
+        panel3.add(title3);
+
         //setting buttons
         //row1
         b1.setBounds(400, 150, 100, 100);
@@ -1283,10 +1362,71 @@ public class Game extends JFrame{
         panel2.add(b14);
         panel2.add(b15);
         panel2.add(b16);
+
+        //setting start and tryagain button
+        start.setBounds(470, 350, 240, 120);
+        start.setBackground(Color.GREEN);
+        tryAgain.setBounds(470,350,240,120);
+        tryAgain.setBackground(Color.RED);
+        panel3.add(tryAgain);
         frame.setVisible(true);
         frame.show();
-
     }
+
+    public void lost(){
+        boolean first = true;
+        boolean second = true;
+        boolean third = true;
+        boolean fourth = true;
+        boolean zero = true;
+        //checks if any box is a zero
+        if(box1 != 0 && box2 != 0 && box3 != 0 && box4 != 0 && box5 != 0 && box6 != 0 && box7 != 0 && box8 != 0 && box9 != 0 && box10 != 0 && box11 != 0 && box12 != 0 && box13 != 0 && box14 != 0 && box15 != 0 && box16 != 0){
+            zero = false;
+        }
+        //checks if first row is movable
+        if(box1 != box2 && box1 != box5){
+            if(box2 != box3 && box2 != box6){
+                if(box3 != box4 && box3 != box7){
+                    if(box4 != box8){
+                        first = false;
+                    }
+                }
+            }
+        }
+        //checks if second row is movable
+        if(box5 != box1 && box5 != box6 && box5 != box9){
+            if(box6 != box2 && box6 != box7 && box6 != box10){
+                if(box7 != box3 && box7 != box8 && box7 != box11){
+                    if(box8 != box4 && box8 != box12){
+                        second = false;
+                    }
+                }
+            }
+        }
+        //checks if third row is movable
+        if(box9 != box5 && box9 != box10 && box9 != box13){
+            if(box10 != box6 && box10 != box11 && box10 != box14){
+                if(box11 != box7 && box11 != box12 && box11 != box15){
+                    if(box12 != box8 && box12 != box16){
+                        third = false;
+                    }
+                }
+            }
+        }
+        if(box13 != box9 && box13 != box14){
+            if(box14 != box10 && box14 != box15){
+                if(box15 != box11 && box15 != box16){
+                    if(box16 != box12){
+                        fourth = false;
+                    }
+                }
+            }
+        }
+        if(!first && !second && !third && !fourth && !zero){
+            lose = true;
+        }
+    }
+
 
     public void refresh(){
         if (box1 == 0){
