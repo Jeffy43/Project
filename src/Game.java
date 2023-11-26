@@ -19,18 +19,18 @@ public class Game extends JFrame{
     int box2 = 0;
     int box3 = 0;
     int box4 = 0;
-    int box5 = 2;
-    int box6 = 2;
-    int box7 = 2;
-    int box8 = 2;
-    int box9 = 2;
-    int box10 = 2;
-    int box11 = 2;
-    int box12 = 2;
-    int box13 = 4;
-    int box14 = 4;
-    int box15 = 4;
-    int box16 = 4;
+    int box5 = 0;
+    int box6 = 0;
+    int box7 = 0;
+    int box8 = 0;
+    int box9 = 0;
+    int box10 = 0;
+    int box11 = 0;
+    int box12 = 0;
+    int box13 = 0;
+    int box14 = 0;
+    int box15 = 0;
+    int box16 = 0;
     //lists of boxes without a value
     ArrayList<Integer> boxesWithout = new ArrayList();
     //value icons
@@ -64,6 +64,23 @@ public class Game extends JFrame{
     JButton b14 = new JButton(iconv0);
     JButton b15 = new JButton(iconv0);
     JButton b16 = new JButton(iconv0);
+
+    JButton b1a = new JButton(iconv0);
+    JButton b2a = new JButton(iconv0);
+    JButton b3a = new JButton(iconv0);
+    JButton b4a = new JButton(iconv0);
+    JButton b5a = new JButton(iconv0);
+    JButton b6a = new JButton(iconv0);
+    JButton b7a = new JButton(iconv0);
+    JButton b8a = new JButton(iconv0);
+    JButton b9a = new JButton(iconv0);
+    JButton b10a = new JButton(iconv0);
+    JButton b11a = new JButton(iconv0);
+    JButton b12a = new JButton(iconv0);
+    JButton b13a = new JButton(iconv0);
+    JButton b14a = new JButton(iconv0);
+    JButton b15a = new JButton(iconv0);
+    JButton b16a = new JButton(iconv0);
 
     boolean lose = false;
     boolean won = false;
@@ -1220,12 +1237,10 @@ public class Game extends JFrame{
     public void setup() {
         JPanel panel = new JPanel();
         JPanel panel2 = new JPanel();
-        JPanel panel3 = new JPanel();
         JFrame frame = new JFrame("MergeMania");
         frame.setSize(1200, 900);
         JLabel title = new JLabel("MergeMania");
         JLabel title2 = new JLabel("MergeMania");
-        JLabel title3 = new JLabel("MergeMania");
         JButton start = new JButton("Start");
         JLabel youLost = new JLabel("You Lost!");
         youLost.setFont(new Font("Comic Sans MS", Font.BOLD, 90));
@@ -1237,17 +1252,12 @@ public class Game extends JFrame{
         title.setForeground(new java.awt.Color(218, 165, 40));
         title2.setFont(new Font("Comic Sans MS", Font.BOLD, 75));
         title2.setForeground(new java.awt.Color(218, 165, 40));
-        title3.setFont(new Font("Comic Sans MS", Font.BOLD, 75));
-        title3.setForeground(new java.awt.Color(218, 165, 40));
         panel.setBackground(Color.DARK_GRAY);
         panel2.setBackground(Color.DARK_GRAY);
-        panel3.setBackground(Color.DARK_GRAY);
         panel.setBorder(new LineBorder(Color.BLACK));
         panel2.setBorder(new LineBorder(Color.BLACK));
-        panel3.setBorder(new LineBorder(Color.BLACK));
         panel.setLayout(null);
         panel2.setLayout(null);
-        panel3.setLayout(null);
         //allows panel to take in inputs
         panel.setFocusable(true);
         panel.requestFocus();
@@ -1271,20 +1281,12 @@ public class Game extends JFrame{
                     newTwo();
                     lost();
                     if(won == true){
-                        frame.getContentPane().removeAll();
-                        frame.add(panel3);
                         youWon.setVisible(true);
                         frame.revalidate();
-                        panel3.setFocusable(true);
-                        panel3.requestFocus();
                     }
                     if(lose == true){
-                        frame.getContentPane().removeAll();
-                        frame.add(panel3);
                         youLost.setVisible(true);
                         frame.revalidate();
-                        panel3.setFocusable(true);
-                        panel3.requestFocus();
                     }
                     print();
                 }
@@ -1294,20 +1296,12 @@ public class Game extends JFrame{
                     newTwo();
                     lost();
                     if(won == true){
-                        frame.getContentPane().removeAll();
-                        frame.add(panel3);
                         youWon.setVisible(true);
                         frame.revalidate();
-                        panel3.setFocusable(true);
-                        panel3.requestFocus();
                     }
                     if(lose == true){
-                        frame.getContentPane().removeAll();
-                        frame.add(panel3);
                         youLost.setVisible(true);
                         frame.revalidate();
-                        panel3.setFocusable(true);
-                        panel3.requestFocus();
                     }
                     print();
                 }
@@ -1317,20 +1311,12 @@ public class Game extends JFrame{
                     newTwo();
                     lost();
                     if(won == true){
-                        frame.getContentPane().removeAll();
-                        frame.add(panel3);
                         youWon.setVisible(true);
                         frame.revalidate();
-                        panel3.setFocusable(true);
-                        panel3.requestFocus();
                     }
                     if(lose == true){
-                        frame.getContentPane().removeAll();
-                        frame.add(panel3);
                         youLost.setVisible(true);
                         frame.revalidate();
-                        panel3.setFocusable(true);
-                        panel3.requestFocus();
                     }
                     print();
                 }
@@ -1340,20 +1326,13 @@ public class Game extends JFrame{
                     newTwo();
                     lost();
                     if(won == true){
-                        frame.getContentPane().removeAll();
-                        frame.add(panel3);
                         youWon.setVisible(true);
                         frame.revalidate();
-                        panel3.setFocusable(true);
-                        panel3.requestFocus();
                     }
                     if(lose == true){
-                        frame.getContentPane().removeAll();
-                        frame.add(panel3);
+
                         youLost.setVisible(true);
                         frame.revalidate();
-                        panel3.setFocusable(true);
-                        panel3.requestFocus();
                     }
                     print();
                 }
@@ -1370,9 +1349,6 @@ public class Game extends JFrame{
         panel.add(start);
         title2.setBounds(frame.getWidth() / 2 - 215, -80, 600, 300);
         panel2.add(title2);
-        title3.setBounds(frame.getWidth() / 2 - 215, -80, 600, 300);
-        title3.setBounds(frame.getWidth() / 2 - 215, -80, 600, 300);
-        panel3.add(title3);
 
         b1.setBorder(new LineBorder(Color.BLACK));
         panel2.add(b1);
@@ -1429,6 +1405,7 @@ public class Game extends JFrame{
         b15.setBounds(600, 450, 100, 100);
         b16.setBounds(700, 450, 100, 100);
 
+
         //adding buttons
         panel2.add(b1);
         panel2.add(b2);
@@ -1447,15 +1424,16 @@ public class Game extends JFrame{
         panel2.add(b15);
         panel2.add(b16);
 
+
         start.setBounds(470, 350, 240, 120);
         start.setBackground(Color.GREEN);
-        panel3.add(youLost);
+        panel2.add(youLost);
 
-        youLost.setBounds(frame.getWidth() / 2 - 215, 300, 600, 300);
+        youLost.setBounds(frame.getWidth() / 2 - 200, 500, 600, 300);
         youLost.setVisible(false);
-        panel3.add(youWon);
+        panel2.add(youWon);
 
-        youWon.setBounds(frame.getWidth() / 2 - 215, 300, 600, 300);
+        youWon.setBounds(frame.getWidth() / 2 - 200, 500, 600, 300);
         youWon.setVisible(false);
         frame.revalidate();
 
