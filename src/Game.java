@@ -65,23 +65,6 @@ public class Game extends JFrame{
     JButton b15 = new JButton(iconv0);
     JButton b16 = new JButton(iconv0);
 
-    JButton b1a = new JButton(iconv0);
-    JButton b2a = new JButton(iconv0);
-    JButton b3a = new JButton(iconv0);
-    JButton b4a = new JButton(iconv0);
-    JButton b5a = new JButton(iconv0);
-    JButton b6a = new JButton(iconv0);
-    JButton b7a = new JButton(iconv0);
-    JButton b8a = new JButton(iconv0);
-    JButton b9a = new JButton(iconv0);
-    JButton b10a = new JButton(iconv0);
-    JButton b11a = new JButton(iconv0);
-    JButton b12a = new JButton(iconv0);
-    JButton b13a = new JButton(iconv0);
-    JButton b14a = new JButton(iconv0);
-    JButton b15a = new JButton(iconv0);
-    JButton b16a = new JButton(iconv0);
-
     boolean lose = false;
     boolean won = false;
     //object constructor
@@ -103,10 +86,7 @@ public class Game extends JFrame{
 
     //prints 4x4 grid
     public void print() {
-        System.out.println(box1 + " " + box2 + " " + box3 + " " + box4);
-        System.out.println(box5 + " " + box6 + " " + box7 + " " + box8);
-        System.out.println(box9 + " " + box10 + " " + box11 + " " + box12);
-        System.out.println(box13 + " " + box14 + " " + box15 + " " + box16);
+        System.out.println("Movement History: \n" + "      " + box1 + " " + box2 + " " + box3 + " " + box4 + "\n" + box5 + " " + box6 + " " + box7 + " " + box8 + "\n" + box9 + " " + box10 + " " + box11 + " " + box12 + "\n" + box13 + " " + box14 + " " + box15 + " " + box16 + "\n");
     }
 
     //clears list of empty boxes
@@ -1331,6 +1311,7 @@ public class Game extends JFrame{
         panel.add(start);
         title2.setBounds(frame.getWidth() / 2 - 215, -80, 600, 300);
         panel2.add(title2);
+        newTwo();
 
         b1.setBorder(new LineBorder(Color.BLACK));
         panel2.add(b1);
@@ -1920,4 +1901,3 @@ public class Game extends JFrame{
             b16.setIcon(iconv4096);
         }
     }}
-
