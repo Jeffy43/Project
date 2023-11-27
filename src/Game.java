@@ -5,10 +5,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.time.chrono.MinguoEra;
 import java.util.ArrayList;
-import java.util.Scanner;
-import java.io.*;
 
 public class Game extends JFrame{
     //private variables
@@ -86,7 +83,7 @@ public class Game extends JFrame{
 
     //prints 4x4 grid
     public void print() {
-        System.out.println("Movement History: \n" + "      " + box1 + " " + box2 + " " + box3 + " " + box4 + "\n" + box5 + " " + box6 + " " + box7 + " " + box8 + "\n" + box9 + " " + box10 + " " + box11 + " " + box12 + "\n" + box13 + " " + box14 + " " + box15 + " " + box16 + "\n");
+        System.out.println("Movement History: \n"+ box1 + " " + box2 + " " + box3 + " " + box4 + "\n" + box5 + " " + box6 + " " + box7 + " " + box8 + "\n" + box9 + " " + box10 + " " + box11 + " " + box12 + "\n" + box13 + " " + box14 + " " + box15 + " " + box16 + "\n");
     }
 
     //clears list of empty boxes
