@@ -97,25 +97,8 @@ public class Game extends JFrame{
         }
     }
 
-    //resets game
-    public void reset(){
-        box1 = 0;
-        box2 = 0;
-        box3 = 0;
-        box4 = 0;
-        box5 = 0;
-        box6 = 0;
-        box7 = 0;
-        box8 = 0;
-        box9 = 0;
-        box10 = 0;
-        box11 = 0;
-        box12 = 0;
-        box13 = 0;
-        box14 = 0;
-        box15 = 0;
-        box16 = 0;
-        currentScore = 0;
+    public Game() {
+        this.targetScore = 2048;
     }
 
     //prints 4x4 grid
@@ -180,7 +163,6 @@ public class Game extends JFrame{
         if (box16 == 0) {
             boxesWithout.add(16);
         }
-        System.out.println(boxesWithout);
         int rand = (int) (Math.random() * boxesWithout.size());
 
         int placement = boxesWithout.get(rand);
@@ -1495,6 +1477,12 @@ public class Game extends JFrame{
         if(!first && !second && !third && !fourth && !zero){
             lose = true;
         }
+    }
+
+
+    public static String introduce(){
+        String str = ("Welcome to MergeMania!\n" + "Press wasd to slide the tiles around and try to hit your target score!" );
+        return str;
     }
 
     //refreshes each boxes icon after movement
