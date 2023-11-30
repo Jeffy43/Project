@@ -7,15 +7,15 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-public class Game extends JFrame{
+public class Game{
     //private variables
     String difficulty = "";
     int targetScore = 0;
     int currentScore = 0;
-    int box1 = 0;
-    int box2 = 0;
-    int box3 = 0;
-    int box4 = 0;
+    int box1 = 512;
+    int box2 = 512;
+    int box3 = 512;
+    int box4 = 512;
     int box5 = 0;
     int box6 = 0;
     int box7 = 0;
