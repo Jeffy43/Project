@@ -12,10 +12,10 @@ public class Game{
     String difficulty = "";
     int targetScore = 0;
     int currentScore = 0;
-    int box1 = 512;
-    int box2 = 512;
-    int box3 = 512;
-    int box4 = 512;
+    int box1 = 0;
+    int box2 = 0;
+    int box3 = 0;
+    int box4 = 0;
     int box5 = 0;
     int box6 = 0;
     int box7 = 0;
@@ -82,9 +82,12 @@ public class Game{
     }
 
     //prints 4x4 grid
-    public void print() {
-        System.out.println("Movement History: \n"+ box1 + " " + box2 + " " + box3 + " " + box4 + "\n" + box5 + " " + box6 + " " + box7 + " " + box8 + "\n" + box9 + " " + box10 + " " + box11 + " " + box12 + "\n" + box13 + " " + box14 + " " + box15 + " " + box16 + "\n");
+    public String toString() {
+        String str ="Movement History: \n"+ box1 + " " + box2 + " " + box3 + " " + box4 + "\n" + box5 + " " + box6 + " " + box7 + " " + box8 + "\n" + box9 + " " + box10 + " " + box11 + " " + box12 + "\n" + box13 + " " + box14 + " " + box15 + " " + box16 + "\n");
+        return str;
     }
+
+
 
     //clears list of empty boxes
     public void clear() {
@@ -1247,7 +1250,7 @@ public class Game{
                         youLost.setVisible(true);
                         frame.revalidate();
                     }
-                    print();
+                    toString();
                 }
                 //a
                 if (key == KeyEvent.VK_A) {
@@ -1262,7 +1265,7 @@ public class Game{
                         youLost.setVisible(true);
                         frame.revalidate();
                     }
-                    print();
+                    toString();
                 }
                 //s
                 if (key == KeyEvent.VK_S) {
@@ -1277,7 +1280,7 @@ public class Game{
                         youLost.setVisible(true);
                         frame.revalidate();
                     }
-                    print();
+                    toString();
                 }
                 //d
                 if (key == KeyEvent.VK_D) {
@@ -1293,7 +1296,7 @@ public class Game{
                         youLost.setVisible(true);
                         frame.revalidate();
                     }
-                    print();
+                    toString();
                 }
             }
         });
