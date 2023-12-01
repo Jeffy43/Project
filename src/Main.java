@@ -6,11 +6,11 @@ public class Main {
         System.out.println(Game.introduce());
         System.out.println("ENTER YOUR DIFFICULTY LEVEL (Easy, Medium, Hard) Default set to medium, enter nothing to continue.");
 
-        String difficulty = scan.nextLine().toString();
+        String difficulty = scan.nextLine();
         if(difficulty.isEmpty()){
             Game game = new Game();
             game.setup();
-            game.print();
+            game.toString();
             while (!game.won()) {
                 game.won();
                 while (!game.won()) {
@@ -21,7 +21,7 @@ public class Main {
         }else{
             Game game = new Game(difficulty);
             game.setup();
-            game.print();
+            game.toString();
             while (!game.won()) {
                 game.won();
                 while (!game.won()) {

@@ -83,7 +83,7 @@ public class Game{
 
     //prints 4x4 grid
     public String toString() {
-        String str ="Movement History: \n"+ box1 + " " + box2 + " " + box3 + " " + box4 + "\n" + box5 + " " + box6 + " " + box7 + " " + box8 + "\n" + box9 + " " + box10 + " " + box11 + " " + box12 + "\n" + box13 + " " + box14 + " " + box15 + " " + box16 + "\n");
+        String str ="Movement History: \n"+ box1 + " " + box2 + " " + box3 + " " + box4 + "\n" + box5 + " " + box6 + " " + box7 + " " + box8 + "\n" + box9 + " " + box10 + " " + box11 + " " + box12 + "\n" + box13 + " " + box14 + " " + box15 + " " + box16 + "\n";
         return str;
     }
 
